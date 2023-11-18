@@ -19,6 +19,7 @@ def convert_notebook_to_html(notebook_path):
 st.title("Jupyter NB to Pdf Converter")
 
 uploaded_file = st.file_uploader("Upload a Jupyter Notebook", type="ipynb")
+
 if uploaded_file is not None:
     file_name = uploaded_file.name
     notebook_path = file_name
@@ -66,4 +67,4 @@ pdf_display =  f"""<embed
             st.markdown(pdf_display, unsafe_allow_html=True)
             PDFByte = f.read()
             status_message.text("Conversion complete! PDF is ready to download.")
-            st.download_button(label="Download PDF", data=PDFByte, file_name=pdf_name, mime='application/pdf')
+            st.download_button(label="Download PDF", data=f, file_name=pdf_name, mime='application/pdf')

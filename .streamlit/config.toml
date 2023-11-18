@@ -1,12 +1,5 @@
 [theme]
-#Primary accent color
-primaryColor = "#d33682"
-
-#Background color
-backgroundColor = "#002b36"
-
-#Background color for sidebar and widgets
-secondaryBackgroundcolor = "#586e75"
-
-#for all test
-textColor = "#fff"
+primaryColor="#d33682"
+backgroundColor="#002b36"
+secondaryBackgroundColor="#3c3d3d"
+textColor="#fff"
