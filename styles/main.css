@@ -13,3 +13,6 @@ a:hover{
     test-decoration: none;
 }
 
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}

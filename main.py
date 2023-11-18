@@ -9,6 +9,7 @@ current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 
 st.set_page_config(page_title="NB to Pdf Converter")
+st.markdown('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()),unsafe_allow_html=True)
