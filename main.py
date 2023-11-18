@@ -55,15 +55,7 @@ if uploaded_file is not None:
             base64_pdf = base64.b64encode(f.read()).decode('utf-8')
             status_message.text("Preparing download...")
             progress_bar.progress(100)
-            #pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="100%" style="height:80vh;"></iframe>'
-
-pdf_display =  f"""<embed
-    class="pdfobject"
-    type="application/pdf"
-    title="Embedded PDF"
-    src="data:application/pdf;base64,{base64_pdf}"
-    style="overflow: auto; width: 100%; height: 100%;">"""
-
+            pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="100%" style="height:80vh;"></iframe>'
             st.markdown(pdf_display, unsafe_allow_html=True)
             PDFByte = f.read()
             status_message.text("Conversion complete! PDF is ready to download.")
