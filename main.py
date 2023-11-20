@@ -8,6 +8,8 @@ from streamlit_lottie import st_lottie
 import json
 import shutil
 
+st.set_page_config(page_title="NB to PDF and HTML Converter")
+
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 
 def get_disk_usage(path):
@@ -20,7 +22,7 @@ st.write(get_disk_usage(current_dir))
 
 css_file = current_dir / "styles" / "main.css"
 
-st.set_page_config(page_title="NB to PDF and HTML Converter")
+
 st.markdown('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 
 with open(css_file) as f:
