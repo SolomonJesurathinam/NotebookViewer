@@ -8,9 +8,6 @@ from streamlit_lottie import st_lottie
 import json
 import shutil
 
-# 0.7249087159990619
-# 0.7249205380285673
-
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 
@@ -20,14 +17,15 @@ st.markdown('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allo
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
-def clear_storage_if_needed(storage_dir, threshold=0.7249505380285673):
+def clear_storage_if_needed(storage_dir, threshold=0.9):
     # Get disk usage statistics
     total, used, free = shutil.disk_usage(storage_dir)
 
     # Calculate the percentage of space used
     percent_used = used / total
 
-    st.write(percent_used)
+    if(percent_used > 8.5):
+        st.write(percent_used)
 
     # If used space exceeds the threshold, delete files
     if percent_used > threshold:
