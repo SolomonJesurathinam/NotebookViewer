@@ -100,7 +100,7 @@ if uploaded_file is not None:
 
         with open(pdf_name, "rb") as f:
             pdf_data = f.read()
-            st.download_button(label="Download PDF", data=pdf_data, file_name=pdf_name, mime='application/pdf')
+            st.download_button(label="Download PDF", data=pdf_data, file_name=pdf_name, mime='application/octet-stream')
             status_message.text("Conversion complete! PDF is ready to download.")
         progress_bar.progress(100)
 
