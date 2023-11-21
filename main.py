@@ -82,7 +82,10 @@ if uploaded_file is not None:
             status_message.text("Converting HTML to PDF...")
             progress_bar.progress(50)
             try:
-                pdfkit.from_file(html_path, pdf_name, options={"enable-local-file-access": ""}, verbose=True)
+                #pdfkit.from_file(html_path, pdf_name, options={"enable-local-file-access": ""}, verbose=True)
+                with open(html_path, 'r', encoding='uft-8') as f:
+                    html_content = f.read()
+                pdfkit.from_string(html_content, pdf_name, verbose=True)
             except OSError as e:
                 if 'Done' not in str(e):
                     st.error("Error while converting, please try another file or reload and try again")
