@@ -7,6 +7,8 @@ from streamlit_lottie import st_lottie
 import json
 import shutil
 
+os.system("playwright install")
+
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 css_file = current_dir / "styles" / "main.css"
 
