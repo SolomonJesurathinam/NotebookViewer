@@ -1,6 +1,5 @@
 import streamlit as st
 from nbconvert.nbconvertapp import main as nbmain
-import pdfkit
 import os
 from pathlib import Path
 from streamlit_javascript import st_javascript
@@ -81,18 +80,13 @@ if uploaded_file is not None:
         def get_options():
             return {
                 'encoding': 'UTF-8',
-                'enable-local-file-access': ""
+                'enable-local-file-access': None
             }
 
         if not os.path.exists(pdf_name):
             # Convert HTML to PDF
-            status_message.text("Converting HTML to PDF...")
-            progress_bar.progress(50)
-            try:
-                pdfkit.from_file(html_path, pdf_name, options=get_options(), verbose=True)
-            except OSError as e:
-                if 'Done' not in str(e):
-                    st.error("Error while converting, please try another file or reload and try again")
+            status_message.text("Converting Ipynb to PDF...")
+            nbmain(['--to', 'webpdf', '--allow-chromium-download', notebook_path])
 
     # Display HTML File and offer PDF for download
     progress_bar.progress(75)
