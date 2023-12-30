@@ -47,7 +47,7 @@ lottiepath = "loading.json"
 with open(lottiepath, "r") as file:
     lottie_animation = json.load(file)
 
-st.title("Jupyter NB to PDF and HTML Converter :hammer:")
+st.title("Jupyter NB to PDF Converter :hammer:")
 
 uploaded_file = st.file_uploader("Upload a Jupyter Notebook :chart_with_upwards_trend:", type="ipynb")
 
